@@ -87,9 +87,9 @@ namespace ConsoleApp1
             await LifeCircle();
             
         }
-        public void Feed()
+        public void Feed(byte needfood)
         {
-            HungryStatus = 100;
+            HungryStatus += needfood;
         }
     }
 
