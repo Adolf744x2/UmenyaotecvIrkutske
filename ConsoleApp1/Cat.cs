@@ -24,6 +24,7 @@ namespace ConsoleApp1
         {
             return (DateTime.Today - Birthday).Days / 365;
         }
+        public event EventHandler HungryStatusChanged;
         byte _hungryStatus;
         public byte HungryStatus
         {
@@ -33,13 +34,18 @@ namespace ConsoleApp1
                 if (value < 0)
                 {
                     _hungryStatus = 0;
+                    HungryStatusChanged?.Invoke(this, null);
                 }
                 else if (value > 100)
                 {
                     _hungryStatus = 100;
+                    HungryStatusChanged?.Invoke(this, null);
                 }
                 else
+                {
                     _hungryStatus = value;
+                    HungryStatusChanged?.Invoke(this, null);
+                }
             }
         }
         public void GetStatus()
@@ -78,11 +84,13 @@ namespace ConsoleApp1
         {
             await Task.Delay(10000);
             HungryStatus -= 10;
-            GetStatus();
             await LifeCircle();
-            Task.Run(LifeCircle);
+            
         }
-
-}
+        public void Feed()
+        {
+            HungryStatus = 100;
+        }
+    }
 
 }
