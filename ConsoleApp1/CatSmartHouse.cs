@@ -9,7 +9,7 @@ namespace ConsoleApp1
 {
     class CatSmartHouse
     {
-        public static int FoodResource
+        public  int FoodResource
         {
             get
             {
@@ -27,6 +27,10 @@ namespace ConsoleApp1
         {
         }
 
+        public CatSmartHouse()
+        {
+        }
+
         public static int foodResource
         {
             get;
@@ -39,7 +43,7 @@ namespace ConsoleApp1
 
         }
 
-        private static void smart(object sender, EventArgs e)
+        private  void smart(object sender, EventArgs e)
         {
             var cat = (Cat)sender;
             if (cat.HungryStatus <= 20 && FoodResource > 0)
