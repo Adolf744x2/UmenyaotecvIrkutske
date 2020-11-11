@@ -17,6 +17,7 @@ namespace ConsoleApp1
             vladik.Makenois();
             vladik.HungryStatus = 150;
             Console.WriteLine($"Кошке по имени{vladik.Name} уже {vladik.GatAge()} лет");
+            Console.SetCursorPosition(0, 3 + 1);
             Console.ReadLine();
 
             CatSmartHouse catSmartH = new CatSmartHouse(900);
